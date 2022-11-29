@@ -13,9 +13,10 @@ namespace eTickets.Controllers
             _dbContext = dbContext;
         }
 
+        
         public async Task<IActionResult> Index()
         {
-            var data = await _dbContext.Producers.ToListAsync();
+            var data = await _dbContext.Actors.ToListAsync();
             return View(data);
         }
     }
