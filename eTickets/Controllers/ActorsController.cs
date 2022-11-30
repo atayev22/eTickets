@@ -11,7 +11,7 @@ namespace eTickets.Controllers
 
         public ActorsController(IActorsService actorsService)
         {
-            this._actorsService = actorsService;
+            _actorsService = actorsService;
         }
 
         public async Task<IActionResult> Index()
