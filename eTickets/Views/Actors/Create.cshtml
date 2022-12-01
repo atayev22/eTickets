@@ -1,8 +1,7 @@
-﻿
-@model Actor;
+﻿@model Actor
 
 @{
-    ViewData["Title"]="Add a new actor";
+    ViewData["Title"] = "Add a new actor";
 }
 
 <div class="row text">
@@ -20,7 +19,7 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="ProfilePictureUrl" class="control-label"></label>
-                        <input asp-for="ProfilePictureUrl" class="form-control" />
+                        <input asp-for="ProfilePictureUrl" class="form-control"/>
                         <span asp-validation-for="ProfilePictureUrl" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -43,15 +42,15 @@
         </div>
     </div>
 </div>
+
 @section Scripts{ 
         <script>
-            $(document).ready(function () {
-                var output = document.getElementById('ProfilePicturePreview');
-                output.src = $("#ProfilePictureURL").val();
-            })
-            $("#ProfilePictureURL").on("change", function () {
+            
+            $("#ProfilePictureUrl").on("change", function () {
                 var output = document.getElementById('ProfilePicturePreview');
                 output.src = $(this).val();
             })
+           
         </script>
 }
+            
