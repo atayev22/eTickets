@@ -13,10 +13,10 @@ namespace eTickets.Data.Infrastructure.Concrete
             _dbContext = dbContext;
         }
 
-        public void AddActor(Actor actor)
+        public async Task AddActor(Actor actor)
         {
             _dbContext.Actors.Add(actor);
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
         }
 
         public void DeleteActor(int id)
@@ -24,9 +24,10 @@ namespace eTickets.Data.Infrastructure.Concrete
             throw new NotImplementedException();
         }
 
-        public Actor GetActorById(int id)
+        public async Task<Actor> GetActorById(int id)
         {
-            throw new NotImplementedException();
+            var result = await _dbContext.Actors.FirstOrDefaultAsync(a => a.Id == id);
+            return result;
         }
 
         public async Task<IEnumerable<Actor>> GetAllActors()

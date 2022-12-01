@@ -36,5 +36,16 @@ namespace eTickets.Controllers
             _actorsService.AddActor(actor);
             return RedirectToAction(nameof(Index));     
         }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            var actor = _actorsService.GetActorById(id);
+            if(actor == null)
+            {
+                return View("Empty");
+            }
+
+            return View(actor);
+        }
     }
 }
