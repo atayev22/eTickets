@@ -34,7 +34,9 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-outline-success float-right" />
+                         @*<a asp-controller="Actors" asp-action="AddActor" class="btn btn-success">
+                            <i class="bi bi-plus-circle"></i>Create Actor</a>*@
+                            <input type="submit" value="Create" class="btn btn-outline-success float-right" />
                         <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
                     </div>
                 </form>
@@ -45,8 +47,13 @@
 
 @section Scripts{ 
         <script>
+
+            $(document).ready(function () {
+                var output = document.getElementById('ProfilePicturePreview');
+            output.src = $("#ProfilePictureUrl").val();
+            })
             
-            $("#ProfilePictureUrl").on("change", function () {
+            $("#ProfilePictureUrl").on("change", function () { 
                 var output = document.getElementById('ProfilePicturePreview');
                 output.src = $(this).val();
             })

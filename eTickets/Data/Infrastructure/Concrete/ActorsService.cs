@@ -15,7 +15,8 @@ namespace eTickets.Data.Infrastructure.Concrete
 
         public void AddActor(Actor actor)
         {
-            throw new NotImplementedException();
+            _dbContext.Actors.Add(actor);
+            _dbContext.SaveChanges();
         }
 
         public void DeleteActor(int id)
